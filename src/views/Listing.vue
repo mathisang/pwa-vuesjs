@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>Listing page</h1>
+    <h1>Liste des articles : {{ $route.params.categorie }}</h1>
   </div>
 </template>

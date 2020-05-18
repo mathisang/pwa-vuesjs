@@ -13,8 +13,13 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/listing',
-    name: 'Listing',
+    path: '/articles',
+    name: 'Liste articles',
+    component: Listing
+  },
+  {
+    path: '/articles/categorie/:categorie',
+    name: 'Artciles de catégorie',
     component: Listing
   },
   {
