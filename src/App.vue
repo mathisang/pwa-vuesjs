@@ -2,21 +2,24 @@
     <div id="app">
         <Nav />
         <router-view/>
+        <Footer />
     </div>
 </template>
 
 <script>
     import Nav from '@/components/Nav.vue'
+    import Footer from '@/components/Footer.vue'
 
     export default {
         components: {
-            Nav
+            Nav,
+            Footer
         }
     }
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
     body {
         background: #141414;
@@ -31,6 +34,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         font-size: 16px;
+        font-weight: 400;
     }
 
     p {

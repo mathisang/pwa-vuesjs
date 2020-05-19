@@ -26,10 +26,10 @@
         </div>
         <h1>Liste des articles : {{ $route.params.categorie }}</h1>
         <div class="content">
-            <div class="card" v-for="post in posts" :key="post.id">
+            <div class="card" v-for="post in list" :key="post.id">
                 <img :src="'/img/affiche/' + post.id + '.png'"/><br>
                 <router-link :to="`/article/${ post.id }`">
-                    {{ post.title }}
+                    {{ post.title | subStr }}
                 </router-link>
                 <p>Vues : {{ randomNumber(50000) }}</p>
                 <p>Likes : {{ randomNumber(5000) }}</p>
@@ -45,7 +45,7 @@
     export default {
         data() {
             return {
-                posts: null
+                posts: []
             }
         },
         created() {
@@ -54,6 +54,30 @@
                     this.posts = data
                 })
             })
+        },
+        filters: {
+            subStr: function (string) {
+                return string.substring(0, 22);
+            }
+        },
+        computed: {
+            list: function() {
+                if(this.$route.params.categorie === "series")
+                {
+                    return this.posts.filter(function(i) {
+                        return i.userId === 1
+                    })
+                }
+                else if(this.$route.params.categorie === "films")
+                {
+                    return this.posts.filter(function(i) {
+                        return i.userId === 2
+                    })
+                }
+                else {
+                    return this.posts
+                }
+            }
         },
         methods: {
             getImgUrl(pic) {
@@ -103,12 +127,8 @@
         align-items: baseline;
     }
 
-    .block-card {
-        width: 30%;
-    }
-
     .card {
-        width: 100%;
+        width: 30%;
         border: 1px gray solid;
         margin: .5rem;
     }
