@@ -10,9 +10,9 @@
         <div class="right-left">
             <div class="input-search">
                 <input type="text" class="search" placeholder="Titres, genres..." />
-                <img style="width:16px;" src="../assets/svg/zoom.svg" />
+                <img style="width:16px;" src="../assets/pictos/zoom.svg" />
             </div>
-            <img class="bookmark" style="width:16px;" src="../assets/svg/saved.svg" />
+            <img class="bookmark" style="width:16px;" src="../assets/pictos/saved.svg" />
             <div class="user-profile"></div>
         </div>
     </div>

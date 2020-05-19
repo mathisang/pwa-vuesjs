@@ -8,6 +8,7 @@
         </div>
         <div style="display: flex">
             <TopsCards title="titre"/>
+            <Card title="titre"/>
         </div>
     </div>
 </template>
@@ -15,10 +16,12 @@
 <script>
     // @ is an alias to /src
     import TopsCards from '@/components/TopsCards.vue'
+    import Card from "@/components/Card";
 
     export default {
         name: 'Home',
         components: {
+            Card,
             TopsCards
         },
         data() {

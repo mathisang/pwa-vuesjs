@@ -37,7 +37,7 @@
             return {
                 showCard: false,
                 saveImg: "../assets/pictos/Save.svg",
-                savedImg: "../assets/svg/saved.svg"
+                savedImg: "../assets/pictos/saved.svg"
             }
         },
         props: {
