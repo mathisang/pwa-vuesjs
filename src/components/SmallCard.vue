@@ -4,7 +4,7 @@
         <div class="content">
             <h3>{{ title }}</h3>
             <p>Lecture {{ temps }} min</p>
-            <p>{{ randomLike() }} like</p>
+            <p>{{ randomNumber(10000) }} like</p>
         </div>
     </div>
 </template>
@@ -19,8 +19,8 @@
             image: String
         },
         methods : {
-            randomLike : function(){
-                return Math.floor(Math.random() * 10000);
+            randomNumber : function(e){
+                return Math.floor(Math.random() * e);
             }
         }
     }

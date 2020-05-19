@@ -37,6 +37,7 @@
         font-weight: 500;
         margin: 0 1rem;
         color: white;
+        opacity: .7;
     }
 
     #nav .right-left {
@@ -44,7 +45,12 @@
         align-items: center;
     }
 
+    #nav .router-link-exact-active {
+        opacity: 1;
+    }
+
     .logo {
+        opacity: 1 !important;
         font-weight: bold !important;
         font-size: 18px !important;
     }
