@@ -23,7 +23,7 @@ Vue.use(VueRouter)
     component: Listing
   },
   {
-    path: '/article/:slug',
+    path: '/article/:id',
     name: 'Article',
     component: Article
   }
