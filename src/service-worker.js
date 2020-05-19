@@ -6,10 +6,12 @@ workbox.setConfig({
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
+// APIs
+
 workbox.routing.registerRoute(
     new RegExp('https://jsonplaceholder.typicode.com/(.*)'),
     new workbox.strategies.CacheFirst({
-        cacheName: 'jsonplaceholder',
+        cacheName: 'jsonPlaceHolder',
         method: 'GET',
         cacheableResponse: { statuses: [0, 200] },
         plugins: [
@@ -20,8 +22,10 @@ workbox.routing.registerRoute(
     })
 )
 
+// Fonts
+
 workbox.routing.registerRoute(
-    new RegExp('https://fonts.(?:googleapies|gstatic).com/(.*)'),
+    new RegExp('https://font.(?:googleapis|gstatic).com/(.*)'),
     new workbox.strategies.CacheFirst({
         cacheName: 'googleapis',
         method: 'GET',
