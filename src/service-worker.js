@@ -37,3 +37,32 @@ workbox.routing.registerRoute(
         ]
     })
 )
+//[{ "title": "test", "url": "http://127.0.0.1:8887/#/" }]
+let clickUrl
+
+self.addEventListener('push', (event) => {
+    let pushMessage = event.data.json()
+
+    clickUrl = pushMessage[0].url;
+
+    const options = {
+        body: pushMessage[0].title,
+        icon: './img/icons/apple-touch-icon.png',
+        image: './img/icons/android-chrome-512x512.png',
+        vibrate: [200, 100, 200, 100],
+        tag: 'vibration-sample'
+    }
+
+    event.waitUntil(
+        self.registration.showNotification(pushMessage[0].title, options)
+    )
+})
+
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close()
+
+    const promiseChain = clients.openWindow(clickUrl)
+    event.waitUntil(
+        promiseChain
+    )
+})

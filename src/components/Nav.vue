@@ -29,6 +29,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 1.5rem;
     }
 
     #nav .nav-left > * {
@@ -88,7 +89,7 @@
     }
 
     .user-profile {
-        background: url("../assets/images/user.png");
+        background: url("../assets/img/user.png");
         background-size: cover;
         width: 40px;
         height: 40px;

@@ -1,4 +1,3 @@
-<!--
 <template>
   <div @mouseover="overCard" class="card-container">
     {{ title }}
@@ -28,14 +27,14 @@ bem
 </script>
 <style scoped>
   .card-container {
-    background-image: url("../assets/img/peaky.png");
+    background-image: url("../assets/img/affiche/peaky.png");
     height: 380px;
     width: 300px;
     background-size: cover;
     background-position: center;
   }
   .card-container:hover {
-    background-image: url("../assets/img/peaky.png");
+    background-image: url("../assets/img/affiche/peaky.png");
     height: 380px;
     width: 300px;
     background-size: cover;
@@ -43,4 +42,3 @@ bem
   }
 
 </style>
--->
