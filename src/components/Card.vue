@@ -37,7 +37,7 @@
             return {
                 showCard: false,
                 saveImg: "../assets/pictos/Save.svg",
-                savedImg: "../assets/svg/saved.svg"
+                savedImg: "../assets/pictos/saved.svg"
             }
         },
         props: {
@@ -52,7 +52,7 @@
 </script>
 <style scoped>
   .card-container {
-    background-image: url("../assets/img/peaky.png");
+    background-image: url("../assets/img/affiche/peaky.png");
     height: 380px;
     width: 300px;
     background-size: cover;
@@ -60,6 +60,11 @@
     position: relative;
   }
   .card-container:hover {
+    background-image: url("../assets/img/affiche/peaky.png");
+    height: 380px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
     cursor: pointer;
   }
   .info-container {
@@ -126,7 +131,6 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
   }
 
 </style>

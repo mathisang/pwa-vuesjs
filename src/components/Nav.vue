@@ -10,9 +10,9 @@
         <div class="right-left">
             <div class="input-search">
                 <input type="text" class="search" placeholder="Titres, genres..." />
-                <img style="width:16px;" src="../assets/svg/zoom.svg" />
+                <img style="width:16px;" src="../assets/pictos/zoom.svg" />
             </div>
-            <img class="bookmark" style="width:16px;" src="../assets/svg/saved.svg" />
+            <img class="bookmark" style="width:16px;" src="../assets/pictos/saved.svg" />
             <div class="user-profile"></div>
         </div>
     </div>
@@ -29,6 +29,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 1.5rem;
     }
 
     #nav .nav-left > * {
@@ -88,7 +89,7 @@
     }
 
     .user-profile {
-        background: url("../assets/images/user.png");
+        background: url("../assets/img/user.png");
         background-size: cover;
         width: 40px;
         height: 40px;

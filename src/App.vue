@@ -21,6 +21,8 @@
     body {
         background: #141414;
         color: white;
+        margin: 0;
+        overflow-x: hidden;
     }
 
     #app {
@@ -28,7 +30,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
-        margin: 2rem;
         font-size: 16px;
     }
 
