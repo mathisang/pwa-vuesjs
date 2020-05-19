@@ -14,9 +14,8 @@
         name: "SmallCard",
         props: {
             title: String,
-            temps: Number,
-            like: Number,
-            image: String
+            temps: String,
+            like: String
         },
         methods : {
             randomNumber : function(e){
