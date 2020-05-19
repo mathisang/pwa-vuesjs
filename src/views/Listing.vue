@@ -34,7 +34,7 @@
             }
         },
         created() {
-            fetch('http://jsonplaceholder.typicode.com/posts/?_limit=18').then((response) => {
+            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=18').then((response) => {
                 response.json().then((data) => {
                     this.posts = data
                 })
