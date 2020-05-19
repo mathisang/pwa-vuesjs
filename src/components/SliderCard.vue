@@ -1,13 +1,12 @@
 <template>
   <div class="slider-container">
     <slick ref="slick" :options="slickOptions">
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
+      <Card  />
+      <Card  />
+      <Card  />
+      <Card  />
+      <Card  />
+      <Card  />
     </slick>
   </div>
 </template>
@@ -22,8 +21,16 @@
             Card,
             Slick
         },
+        created() {
+            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=18').then((response) => {
+                response.json().then((data) => {
+                    this.posts = data
+                })
+            })
+        },
         data() {
             return {
+                posts:[],
                 slickOptions: {
                     slidesToShow: 4,
                     infinite: true,
@@ -37,6 +44,45 @@
                 }
             }
         },
+        methods: {
+            getImgUrl(pic) {
+                return require('../assets/img/affiche' + pic)
+            },
+            setGenre(e) {
+                const nCat = e % 5 + 1;
+
+                if (nCat === 1) {
+                    return "Thriller"
+                } else if (nCat === 2) {
+                    return "Comedie"
+                } else if (nCat === 3) {
+                    return "Drame"
+                } else if (nCat === 4) {
+                    return "Action"
+                } else if (nCat === 5) {
+                    return "Aventure"
+                }
+            }
+        },
+        computed: {
+            list: function() {
+                if(this.$route.params.categorie === "series")
+                {
+                    return this.posts.filter(function(i) {
+                        return i.userId === 1
+                    })
+                }
+                else if(this.$route.params.categorie === "films")
+                {
+                    return this.posts.filter(function(i) {
+                        return i.userId === 2
+                    })
+                }
+                else {
+                    return this.posts
+                }
+            }
+        }
     }
 
 </script>

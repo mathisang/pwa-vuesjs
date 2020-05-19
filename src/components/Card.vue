@@ -7,18 +7,18 @@
           <p class="entry-date">5 juin 2019</p>
         </div>
         <div class="middle-info">
-          <p class="genre">Thriller/Comédie</p>
+          <p class="genre">{{genre}}</p>
           <p class="director">BONG JOON-HO</p>
-          <p class="duration">Lecture 5 min</p>
+          <p class="duration">Lecture {{ randomNumber(20) }} min</p>
         </div>
         <div class="rate-container">
           <div class="views">
             <img src="../assets/pictos/eye.svg" width="20px" />
-            <p>12 263</p>
+            <p>{{ randomNumber(50000) }}</p>
           </div>
           <div class="like">
             <img src="../assets/pictos/like.svg" width="20px" />
-            <p>4316</p>
+            <p>{{ randomNumber(5000) }}</p>
           </div>
         </div>
         <div class="save-read-container">
@@ -41,11 +41,14 @@
             }
         },
         props: {
-            title: String
+            genre: String,
         },
         methods : {
             overCard: function() {
                 this.showCard = !this.showCard;
+            },
+            randomNumber: function (e) {
+                return Math.floor(Math.random() * e) + 1;
             }
         }
     }
