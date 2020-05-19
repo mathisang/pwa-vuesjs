@@ -19,7 +19,7 @@ Vue.use(VueRouter)
   },
   {
     path: '/articles/categorie/:categorie',
-    name: 'Artciles de catégorie',
+    name: 'Articles de catégorie',
     component: Listing
   },
   {
