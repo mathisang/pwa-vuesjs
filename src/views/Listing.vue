@@ -19,8 +19,9 @@
             }
         },
         created() {
-            fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
+            fetch('https://jsonplaceholder.typicode.com/posts', {method: 'HEAD', mode: 'no-cors'}).then((response) => {
                 response.json().then((data) => {
+
                     this.posts = data
                 })
             })
