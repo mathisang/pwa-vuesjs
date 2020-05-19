@@ -54,7 +54,7 @@
   .card-container {
     background-image: url("../assets/img/affiche/peaky.png");
     height: 380px;
-    width: 300px;
+    width: 300px!important;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -62,7 +62,7 @@
   .card-container:hover {
     background-image: url("../assets/img/affiche/peaky.png");
     height: 380px;
-    width: 300px;
+    width: 300px!important;
     background-size: cover;
     background-position: center;
     cursor: pointer;
@@ -72,7 +72,7 @@
     width: 100%;
     bottom: 0;
     border-radius: 8px;
-    height: 90%;
+    height: 100%;
     background: linear-gradient(360deg, #000000 19.24%, rgba(0, 0, 0, 0) 103.4%);
   }
   .black-background {

@@ -1,46 +1,73 @@
 <template>
-  <div class="about">
-    <h1>Liste des articles : {{ $route.params.categorie }}</h1>
-    <div class="content">
-      <div class="card" v-for="post in posts" :key="post.id">
-        <router-link :to="`/article/${ post.id }`">
-          {{ post.title }}
-        </router-link>
-      </div>
-    </div>
+  <div class="slider-container">
+    <slick ref="slick" :options="slickOptions">
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    </slick>
   </div>
 </template>
 
 <script>
+    import Card from '@/components/Card.vue'
+    import Slick from 'vue-slick'
+
     export default {
+        name: 'SliderCard',
+        components: {
+            Card,
+            Slick
+        },
         data() {
             return {
-                posts: null
+                slickOptions: {
+                    slidesToShow: 4,
+                    infinite: true,
+                    adaptiveHeight: false,
+                    arrows: true,
+                    dots: false,
+                    draggable: true,
+                    swipe: true,
+                    prevArrow: '<img src="../assets/img/left-button.png" data-role="none" class="slick-prev"/>',
+                    nextArrow: '<img src="../assets/img/right-button.png" data-role="none" class="slick-next "/>'
+                }
             }
         },
-        created() {
-            fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
-                response.json().then((data) => {
-
-                    this.posts = data
-                })
-            })
-        }
     }
+
 </script>
 
-
-<style scoped>
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+<style>
+  .slider-container {
+    width: 100%;
   }
-
-  .card {
-    width: 33%;
-    padding: 10px;
-    border: 1px gray solid;
-    margin: .5rem;
+.slick-slide {
+  width: auto;
+}
+  .slick-track {
+    display: flex;
+  }
+  .slick-slider {
+    position: relative;
+  }
+  .slick-prev {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .slick-next {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
 </style>

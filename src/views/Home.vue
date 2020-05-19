@@ -6,23 +6,52 @@
                 <p>Notre blog ne ressemble à aucune autre plateforme sur Internet. Notre seul objectif est de vous aider à passer un bon moment devant votre écran.</p>
             </div>
         </div>
-        <div style="display: flex">
-            <TopsCards title="titre"/>
-            <Card title="titre"/>
+      <div class="wrapper-content">
+        <div style="width: 25%; display: flex; justify-content: center;">
+          <h2 style="text-align: left; width: 300px;">Nouveautés</h2>
         </div>
+        <div style="display: flex">
+            <div style="width: 25%; display: flex; justify-content: center;">
+              <Card/>
+            </div>
+            <div style="width: 25%; display: flex; justify-content: center;">
+              <Card/>
+            </div>
+            <div style="width: 25%; display: flex; justify-content: center;">
+              <Card/>
+            </div>
+          <div style="width: 25%; display: flex; justify-content: center;">
+            <TopsCards title="titre"/>
+          </div>
+        </div>
+        <div style=" margin: 3em 0;" >
+          <div style="width: 25%; display: flex; justify-content: center;">
+            <h2 style="text-align: left; width: 300px;">FILMS</h2>
+          </div>
+          <SliderCard/>
+        </div>
+        <div style=" margin: 3em 0;" >
+          <div style="width: 25%; display: flex; justify-content: center;">
+            <h2 style="text-align: left; width: 300px;">SERIES</h2>
+          </div>
+          <SliderCard/>
+        </div>
+      </div>
     </div>
 </template>
 
 <script>
     // @ is an alias to /src
     import TopsCards from '@/components/TopsCards.vue'
-    import Card from "@/components/Card";
+    import SliderCard from "@/components/SliderCard";
+    import Card from "@/components//Card";
 
     export default {
         name: 'Home',
         components: {
-            Card,
-            TopsCards
+            SliderCard,
+            TopsCards,
+            Card
         },
         data() {
             return {
@@ -63,4 +92,8 @@
         text-align: justify;
         margin: 0;
     }
+
+  .wrapper-content {
+    padding: 3em;
+  }
 </style>
