@@ -1,30 +1,10 @@
 <template>
     <div class="listing">
         <!-- componenet a faire -->
-        <div class="header">
-            <div class="content">
-                <span>8 min</span>
-                <h1>Koğuştaki Mucize</h1>
-                <p>Koğuştaki Mucize est un film dramatique turc réalisé par Mehmet Ada Öztekin, sorti en 2019. Il s’agit
-                    de l’adaptation du film sud-coréen, Miracle in Cell No. 7 de Lee Hwan-gyeong.</p>
-                <div class="bar">
-                    <div class="views">
-                        <img src="../assets/pictos/eye.svg" width="20px"/>
-                        <p>18 463</p>
-                    </div>
-                    <div class="likes">
-                        <img src="../assets/pictos/like.svg" width="20px"/>
-                        <p>8674</p>
-                    </div>
-                    <router-link :to="`/article/1`">
-                        <div class="read">
-                            Lire
-                        </div>
-                    </router-link>
-                </div>
-            </div>
-        </div>
-        <h1>Liste des articles : {{ $route.params.categorie }}</h1>
+        <HeaderListing :categorie="$route.params.categorie" :key="$route.params.categorie"/>
+        <h2 v-if="$route.params.categorie === 'films'">TOP 10 FILMS</h2>
+        <h2 v-else-if="$route.params.categorie === 'series'">TOP 10 SÉRIES</h2>
+        <h2 v-else-if="$route.params.categorie === 'nouveautes'">NOUVEAUTÉS</h2>
         <div class="content">
             <div class="card" v-for="post in list" :key="post.id">
                 <img :src="'/img/affiche/' + post.id + '.png'"/><br>
@@ -42,7 +22,12 @@
 </template>
 
 <script>
+    import HeaderListing from "@/components/HeaderListing";
+
     export default {
+        components: {
+            HeaderListing
+        },
         data() {
             return {
                 posts: []
@@ -118,84 +103,10 @@
 
 
 <style scoped>
-    .header .content {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        left: 2.5rem;
-        top: 23%;
-        align-items: baseline;
-    }
-
     .card {
         width: 30%;
         border: 1px gray solid;
         margin: .5rem;
-    }
-
-    .header {
-        height: 380px;
-        width: 100%;
-        background: url('../assets/img/header-film.jpg') no-repeat;
-        background-size: cover;
-    }
-
-    .header h1 {
-        color: #FFD800;
-        font-weight: bold;
-        font-size: 64px;
-        margin: 0;
-        display: inherit;
-    }
-
-    .header p {
-        font-size: 18px;
-        font-weight: 500;
-        max-width: 600px;
-        width: 50%;
-        text-align: justify;
-        margin: 0;
-    }
-
-    .bar {
-        margin-top: 1rem;
-    }
-
-    .content span {
-        margin-bottom: -10px;
-    }
-
-    .bar, .bar > * {
-        display: flex;
-        align-items: center;
-    }
-
-    .bar > * img {
-        margin-right: .5rem;
-    }
-
-    .bar p {
-        width: 100%;
-        font-size: 14px;
-    }
-
-    .bar > * {
-        margin-right: 1rem;
-    }
-
-    .header a {
-        text-decoration: none;
-    }
-
-    .read {
-        padding: .25rem;
-        background: #E50914;
-        border-radius: 20px;
-        width: 5rem;
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 15px;
     }
 
     .content {
