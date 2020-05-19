@@ -1,6 +1,6 @@
 <template>
     <div>
-        Article
+        Voici un Article
         {{ $route.params.id }}
         <div v-if="post">
             <h1>{{ post.title }}</h1>
