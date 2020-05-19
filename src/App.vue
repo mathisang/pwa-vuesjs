@@ -31,4 +31,9 @@
         margin: 2rem;
         font-size: 16px;
     }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 </style>
