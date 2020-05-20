@@ -53,7 +53,7 @@
         },
         filters: {
             subStr: function (string) {
-                return string.substring(0, 22);
+                return string.substring(0, 16);
             }
         },
         methods: {
