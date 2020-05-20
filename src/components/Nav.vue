@@ -1,5 +1,5 @@
 <template>
-    <div id="nav">
+    <div id="nav" v-if="!isMobile()">
         <div class="nav-left">
             <router-link to="/" class="logo">BAZ'ART</router-link>
             <router-link to="/">Accueil</router-link>
@@ -16,11 +16,41 @@
             <div class="user-profile"></div>
         </div>
     </div>
+    <div @click.prevent="toggle" id="burger-nav" :class="{ 'active' : isBurgerActive }" v-else>
+            <div class="hamburger"></div>
+        <router-link to="/" class="logo">BAZ'ART</router-link>
+            <router-link to="/">Accueil</router-link>
+            <router-link to="/articles/categorie/films">Films</router-link>
+            <router-link to="/articles/categorie/series">Séries</router-link>
+            <router-link to="/articles/categorie/nouveautes">Nouveautés</router-link>
+            <div class="input-search">
+                <input type="text" class="search" placeholder="Titres, genres..." />
+                <img style="width:16px;" src="../assets/pictos/zoom.svg" />
+            </div>
+            <img class="bookmark" style="width:16px;" src="../assets/pictos/saved.svg" />
+            <div class="user-profile"></div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'Nav'
+        name: 'Nav',
+        data: () => ({
+            isBurgerActive: false
+        }),
+        methods: {
+            isMobile() {
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    return true
+                } else {
+                    return false
+                }
+            },
+            toggle() {
+                this.isBurgerActive = !this.isBurgerActive
+            }
+
+        }
     }
 </script>
 
@@ -101,4 +131,36 @@
         height: 40px;
         border-radius: 100%;
     }
+
+    #burger-nav {
+        position:absolute;
+        padding:0.8em;
+        top:1em;
+        right: .5em;
+        cursor:pointer;
+    }
+
+
+    .hamburger, .hamburger::before, .hamburger::after {
+        content:'';
+        display:block;
+        background:#EBEBD3;
+        height:3px;
+        width:2em;
+        border-radius:3px;
+        -webkit-transition:all ease-in-out 350ms;
+        transition:all ease-in-out 350ms;
+    }
+
+    .hamburger::before {
+        -webkit-transform: translateY(-7px);
+        transform: translateY(-7px);
+    }
+
+    .hamburger::after {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+
+
 </style>

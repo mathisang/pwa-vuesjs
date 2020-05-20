@@ -34,7 +34,15 @@
                     draggable: true,
                     swipe: true,
                     prevArrow: '<img src="../assets/img/left-button.png" data-role="none" class="slick-prev"/>',
-                    nextArrow: '<img src="../assets/img/right-button.png" data-role="none" class="slick-next "/>'
+                    nextArrow: '<img src="../assets/img/right-button.png" data-role="none" class="slick-next "/>',
+                    responsive: [
+                        {
+                            breakpoint: 575,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        }
+                    ]
                 }
             }
         },
