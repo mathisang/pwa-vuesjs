@@ -1,7 +1,7 @@
 <template>
     <div class="slider-container">
         <slick ref="slick" :options="slickOptions" v-if="list.length">
-            <Card v-for="post in list" :key="post.id" :titre="post.title" :idimage="post.id"/>
+            <Card v-for="post in shuffle(list)" :key="post.id" :titre="post.title" :idimage="post.id"/>
         </slick>
     </div>
 </template>
@@ -9,6 +9,7 @@
 <script>
     import Card from '@/components/Card.vue'
     import Slick from 'vue-slick'
+
     export default {
         name: 'SliderCard',
         components: {
@@ -24,6 +25,18 @@
                     this.posts = data
                 })
             })
+        },
+        methods: {
+            shuffle: function (a) {
+                var j, x, i;
+                for (i = a.length - 1; i > 0; i--) {
+                    j = Math.floor(Math.random() * (i + 1));
+                    x = a[i];
+                    a[i] = a[j];
+                    a[j] = x;
+                }
+                return a;
+            }
         },
         data() {
             return {
@@ -103,8 +116,8 @@
     }
 
     @media (max-width: 575px) {
-      .slick-slide.slick-current {
-        z-index: 1;
-      }
+        .slick-slide.slick-current {
+            z-index: 1;
+        }
     }
 </style>
