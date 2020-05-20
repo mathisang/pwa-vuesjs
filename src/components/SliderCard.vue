@@ -9,7 +9,6 @@
 <script>
     import Card from '@/components/Card.vue'
     import Slick from 'vue-slick'
-
     export default {
         name: 'SliderCard',
         components: {
@@ -62,7 +61,6 @@
             }
         }
     }
-
 </script>
 
 <style>
