@@ -139,4 +139,16 @@
         font-weight: bold;
         font-size: 15px;
     }
+    @media (max-width: 575px) {
+        .header {
+            height: 100%;
+            padding-bottom: 2em;
+        }
+        .header h1 {
+            text-align: left;
+        }
+        .header p {
+            width: 80%;
+        }
+    }
 </style>
