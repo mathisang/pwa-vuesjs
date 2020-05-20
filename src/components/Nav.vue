@@ -1,55 +1,58 @@
 <template>
-    <div id="nav" v-if="!isMobile()">
-        <div class="nav-left">
+    <div id="nav">
+        <div class="nav-left menu-desktop">
             <router-link to="/" class="logo">BAZ'ART</router-link>
             <router-link to="/">Accueil</router-link>
             <router-link to="/articles/categorie/films">Films</router-link>
             <router-link to="/articles/categorie/series">Séries</router-link>
             <router-link to="/articles/categorie/nouveautes">Nouveautés</router-link>
         </div>
-        <div class="right-left">
+        <div class="right-left menu-desktop">
             <div class="input-search">
-                <input type="text" class="search" placeholder="Titres, genres..." />
-                <img style="width:16px;" src="../assets/pictos/zoom.svg" />
+                <input type="text" class="search" placeholder="Titres, genres..."/>
+                <img style="width:16px;" src="../assets/pictos/zoom.svg"/>
             </div>
-            <img class="bookmark" style="width:16px;" src="../assets/pictos/saved.svg" />
+            <img class="bookmark" style="width:16px;" src="../assets/pictos/saved.svg"/>
             <div class="user-profile"></div>
         </div>
-    </div>
-    <div @click.prevent="toggle" id="burger-nav" :class="{ 'active' : isBurgerActive }" v-else>
-            <div class="hamburger"></div>
-        <router-link to="/" class="logo">BAZ'ART</router-link>
-            <router-link to="/">Accueil</router-link>
-            <router-link to="/articles/categorie/films">Films</router-link>
-            <router-link to="/articles/categorie/series">Séries</router-link>
-            <router-link to="/articles/categorie/nouveautes">Nouveautés</router-link>
-            <div class="input-search">
-                <input type="text" class="search" placeholder="Titres, genres..." />
-                <img style="width:16px;" src="../assets/pictos/zoom.svg" />
+        <div class="menu-mobile">
+            <router-link to="/" v-on:click.native="closeMobile" class="logo">BAZ'ART</router-link>
+            <a class="hamburger">
+                <div class="burger" v-on:click="openMobile"></div>
+            </a>
+            <div id="open-mobile">
+                <div class="container">
+                    <router-link v-on:click.native="closeMobile" to="/">Accueil</router-link>
+                    <router-link v-on:click.native="closeMobile" to="/articles/categorie/films">Films</router-link>
+                    <router-link v-on:click.native="closeMobile" to="/articles/categorie/series">Séries</router-link>
+                    <router-link v-on:click.native="closeMobile" to="/articles/categorie/nouveautes">Nouveautés</router-link>
+                </div>
             </div>
-            <img class="bookmark" style="width:16px;" src="../assets/pictos/saved.svg" />
-            <div class="user-profile"></div>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
         name: 'Nav',
-        data: () => ({
-            isBurgerActive: false
-        }),
         methods: {
-            isMobile() {
-                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    return true
+            openMobile: function () {
+                var mobile = document.getElementById('open-mobile');
+                if (mobile.style.height !== "100%") {
+                    mobile.style.height = "100%";
+                    document.body.style.overflowY = "hidden";
                 } else {
-                    return false
+                    mobile.style.height = "0%";
+                    document.body.style.overflowY = "scroll";
                 }
             },
-            toggle() {
-                this.isBurgerActive = !this.isBurgerActive
+            closeMobile: function () {
+                var mobile = document.getElementById('open-mobile');
+                if (mobile.style.height !== "0%") {
+                    mobile.style.height = "0%";
+                    document.body.style.overflowY = "scroll";
+                }
             }
-
         }
     }
 </script>
@@ -83,6 +86,8 @@
         opacity: 1 !important;
         font-weight: bold !important;
         font-size: 18px !important;
+        text-decoration: none;
+        color: white;
     }
 
     .search {
@@ -132,35 +137,103 @@
         border-radius: 100%;
     }
 
-    #burger-nav {
-        position:absolute;
-        padding:0.8em;
-        top:1em;
-        right: .5em;
-        cursor:pointer;
+    .menu-mobile {
+        display: none;
     }
 
-
-    .hamburger, .hamburger::before, .hamburger::after {
-        content:'';
-        display:block;
-        background:#EBEBD3;
-        height:3px;
-        width:2em;
-        border-radius:3px;
-        -webkit-transition:all ease-in-out 350ms;
-        transition:all ease-in-out 350ms;
+    #open-mobile {
+        position: fixed;
+        left: 0;
+        top: 4rem;
+        height: 0%;
+        width: 100%;
+        background: #141414;
+        z-index: 9800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        transition: 0.5s;
     }
 
-    .hamburger::before {
-        -webkit-transform: translateY(-7px);
-        transform: translateY(-7px);
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -6rem;
     }
 
-    .hamburger::after {
-        -webkit-transform: translateY(4px);
-        transform: translateY(4px);
+    .container a {
+        margin: 0.5rem 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
     }
 
+    @media screen and (max-width: 900px) {
 
+        .menu-desktop {
+            display: none !important;
+        }
+
+        .menu-mobile {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .burger {
+            position: absolute;
+            width: 28px;
+            height: 5px;
+            background: white;
+            z-index: 9999;
+            right: 1.5rem;
+            top: 34px;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+
+        .burger::before, .burger::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 28px;
+            height: 5px;
+            background: white;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+            border-radius: 1px;
+        }
+
+        .burger::before {
+            margin-top: -10px;
+        }
+
+        .burger::after {
+            margin-top: 10px;
+        }
+
+        .burger.is-active {
+            background: white;
+        }
+
+        .burger.is-active::before {
+            margin-top: 0px;
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .burger.is-active::after {
+            margin-top: 0px;
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
 </style>
