@@ -1,12 +1,7 @@
 <template>
   <div class="slider-container">
-    <slick ref="slick" :options="slickOptions">
-      <Card  />
-      <Card  />
-      <Card  />
-      <Card  />
-      <Card  />
-      <Card  />
+    <slick ref="slick" :options="slickOptions" v-if="list.length">
+      <Card v-for="post in list" :key="post.id" :titre="post.title" :idimage="post.id" />
     </slick>
   </div>
 </template>
@@ -41,26 +36,6 @@
                     swipe: true,
                     prevArrow: '<img src="../assets/img/left-button.png" data-role="none" class="slick-prev"/>',
                     nextArrow: '<img src="../assets/img/right-button.png" data-role="none" class="slick-next "/>'
-                }
-            }
-        },
-        methods: {
-            getImgUrl(pic) {
-                return require('../assets/img/affiche' + pic)
-            },
-            setGenre(e) {
-                const nCat = e % 5 + 1;
-
-                if (nCat === 1) {
-                    return "Thriller"
-                } else if (nCat === 2) {
-                    return "Comedie"
-                } else if (nCat === 3) {
-                    return "Drame"
-                } else if (nCat === 4) {
-                    return "Action"
-                } else if (nCat === 5) {
-                    return "Aventure"
                 }
             }
         },

@@ -7,6 +7,12 @@
             </div>
         </div>
       <div class="wrapper-content">
+          <div style=" margin: 3em 0;" >
+              <div style="width: 25%; display: flex; justify-content: center;">
+                  <h2 style="text-align: left; width: 300px;">SERIES</h2>
+              </div>
+              <SliderCard/>
+          </div>
         <div style="width: 25%; display: flex; justify-content: center;">
           <h2 style="text-align: left; width: 300px;">Nouveautés</h2>
         </div>
