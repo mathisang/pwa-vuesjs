@@ -45,7 +45,7 @@
             }
         },
         created() {
-            fetch(`https://jsonplaceholder.typicode.com/posts/${this.$route.params.id}`).then((response) => {
+            fetch(`https://my-json-server.typicode.com/mathisang/api-vuejs/articles/${this.$route.params.id}`).then((response) => {
                 response.json().then((data) => {
                     this.post = data
                 })

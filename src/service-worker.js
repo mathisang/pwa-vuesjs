@@ -9,7 +9,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 // APIs
 
 workbox.routing.registerRoute(
-    new RegExp('https://jsonplaceholder.typicode.com/(.*)'),
+    new RegExp('https://my-json-server.typicode.com/mathisang/api-vuejs/(.*)'),
     new workbox.strategies.CacheFirst({
         cacheName: 'jsonPlaceHolder',
         method: 'GET',

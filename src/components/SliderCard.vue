@@ -1,7 +1,7 @@
 <template>
     <div class="slider-container">
         <slick ref="slick" :options="slickOptions" v-if="list.length">
-            <Card v-for="post in randomList(list)" :key="post.id" :titre="post.title" :idimage="post.id"/>
+            <Card v-for="post in posts" :key="post.id" :titre="post.title" :idimage="post.id"/>
         </slick>
     </div>
 </template>
@@ -16,7 +16,7 @@
             Slick
         },
         created() {
-            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=18').then((response) => {
+            fetch('https://my-json-server.typicode.com/mathisang/api-vuejs/articles/?_limit=7').then((response) => {
                 response.json().then((data) => {
                     this.posts = data
                 })
@@ -44,13 +44,6 @@
                     prevArrow: '<img src="/img/left-button.png" data-role="none" class="slick-prev"/>',
                     nextArrow: '<img src="/img/right-button.png" data-role="none" class="slick-next "/>'
                 }
-            }
-        },
-        methods: {
-            randomList: function (rand) {
-                return rand.sort(function () {
-                    return 0.5 - Math.random()
-                });
             }
         },
         computed: {

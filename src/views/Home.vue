@@ -48,7 +48,7 @@
             Card
         },
         created() {
-            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=3').then((response) => {
+            fetch('https://my-json-server.typicode.com/mathisang/api-vuejs/articles/?_limit=3').then((response) => {
                 response.json().then((data) => {
                     this.posts = data
                 })

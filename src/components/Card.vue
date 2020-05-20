@@ -46,7 +46,7 @@
         props: {
             genre: String,
             titre: String,
-            idimage: String
+            idimage: Number
         },
         filters: {
             subStr: function (string) {
