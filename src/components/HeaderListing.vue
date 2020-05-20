@@ -37,7 +37,7 @@
                     description: "Koğuştaki Mucize est un film dramatique turc réalisé par Mehmet Ada Öztekin, sorti en 2019. Il s’agit de l’adaptation du film sud-coréen, Miracle in Cell No. 7 de Lee Hwan-gyeong.",
                     vues: "17643",
                     likes: "4210",
-                    idArticle: "5",
+                    idArticle: "2",
                     image: "header-film.jpg"
                 }
             }
@@ -56,7 +56,7 @@
                 return {
                     time: "13",
                     titre: "La voie de la justice",
-                    description: "e combat historique du jeune avocat Bryan Stevenson.  Après ses études à l’université de Harvard, Bryan Stevenson aurait pu se lancer dans une carrière des plus lucratives.",
+                    description: "Le combat historique du jeune avocat Bryan Stevenson.  Après ses études à l’université de Harvard, Bryan Stevenson aurait pu se lancer dans une carrière des plus lucratives.",
                     vues: "13012",
                     likes: "2792",
                     idArticle: "10",
