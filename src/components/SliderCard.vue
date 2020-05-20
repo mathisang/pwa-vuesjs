@@ -16,7 +16,7 @@
             Slick
         },
         created() {
-            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=4').then((response) => {
+            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=18').then((response) => {
                 response.json().then((data) => {
                     this.posts = data
                 })
