@@ -7,27 +7,15 @@
             </div>
         </div>
       <div class="wrapper-content">
-          <div style=" margin: 3em 0;" >
-              <div style="width: 25%; display: flex; justify-content: center;">
-                  <h2 style="text-align: left; width: 300px;">SERIES</h2>
-              </div>
-              <SliderCard/>
-          </div>
         <div style="width: 25%; display: flex; justify-content: center;">
           <h2 style="text-align: left; width: 300px;">Nouveautés</h2>
         </div>
         <div style="display: flex">
-            <div style="width: 25%; display: flex; justify-content: center;">
-              <Card/>
-            </div>
-            <div style="width: 25%; display: flex; justify-content: center;">
-              <Card/>
-            </div>
-            <div style="width: 25%; display: flex; justify-content: center;">
-              <Card/>
+            <div style="width: 25%; display: flex; justify-content: center;" v-for="post in posts" :key="post.id">
+              <Card :key="post.id" :titre="post.title" :idimage="post.id"/>
             </div>
           <div style="width: 25%; display: flex; justify-content: center;">
-            <TopsCards title="titre"/>
+            <TopsCards />
           </div>
         </div>
         <div style=" margin: 3em 0;" >
@@ -59,9 +47,16 @@
             TopsCards,
             Card
         },
+        created() {
+            fetch('https://jsonplaceholder.typicode.com/posts/?_limit=3').then((response) => {
+                response.json().then((data) => {
+                    this.posts = data
+                })
+            })
+        },
         data() {
             return {
-                title: "coucou"
+                posts: []
             }
         }
     }

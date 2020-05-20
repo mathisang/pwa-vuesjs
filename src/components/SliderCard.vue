@@ -1,9 +1,9 @@
 <template>
-  <div class="slider-container">
-    <slick ref="slick" :options="slickOptions" v-if="list.length">
-      <Card v-for="post in list" :key="post.id" :titre="post.title" :idimage="post.id" />
-    </slick>
-  </div>
+    <div class="slider-container">
+        <slick ref="slick" :options="slickOptions" v-if="list.length">
+            <Card v-for="post in randomList(list)" :key="post.id" :titre="post.title" :idimage="post.id"/>
+        </slick>
+    </div>
 </template>
 
 <script>
@@ -25,7 +25,7 @@
         },
         data() {
             return {
-                posts:[],
+                posts: [],
                 slickOptions: {
                     slidesToShow: 4,
                     infinite: true,
@@ -34,26 +34,29 @@
                     dots: false,
                     draggable: true,
                     swipe: true,
-                    prevArrow: '<img src="../assets/img/left-button.png" data-role="none" class="slick-prev"/>',
-                    nextArrow: '<img src="../assets/img/right-button.png" data-role="none" class="slick-next "/>'
+                    prevArrow: '<img src="/img/left-button.png" data-role="none" class="slick-prev"/>',
+                    nextArrow: '<img src="/img/right-button.png" data-role="none" class="slick-next "/>'
                 }
             }
         },
+        methods: {
+            randomList: function (rand) {
+                return rand.sort(function () {
+                    return 0.5 - Math.random()
+                });
+            }
+        },
         computed: {
-            list: function() {
-                if(this.$route.params.categorie === "series")
-                {
-                    return this.posts.filter(function(i) {
+            list: function () {
+                if (this.categorie === "series") {
+                    return this.posts.filter(function (i) {
                         return i.userId === 1
                     })
-                }
-                else if(this.$route.params.categorie === "films")
-                {
-                    return this.posts.filter(function(i) {
+                } else if (this.categorie === "films") {
+                    return this.posts.filter(function (i) {
                         return i.userId === 2
                     })
-                }
-                else {
+                } else {
                     return this.posts
                 }
             }
@@ -63,32 +66,37 @@
 </script>
 
 <style>
-  .slider-container {
-    width: 100%;
-  }
-.slick-slide {
-  width: auto;
-}
-  .slick-track {
-    display: flex;
-  }
-  .slick-slider {
-    position: relative;
-  }
-  .slick-prev {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-  .slick-next {
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
+    .slider-container {
+        width: 100%;
+    }
+
+    .slick-slide {
+        width: auto;
+    }
+
+    .slick-track {
+        display: flex;
+    }
+
+    .slick-slider {
+        position: relative;
+    }
+
+    .slick-prev {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .slick-next {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
 </style>
