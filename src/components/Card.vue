@@ -1,10 +1,10 @@
 <template>
-    <div v-on:mouseenter="overCard" v-on:mouseleave="overCard" class="card-container" :style="{ backgroundImage: 'url(' + image + ')' }">
+    <div v-on:mouseenter="overCard" v-on:mouseleave="overCard" class="card-container" :style="{ backgroundImage: 'url(' + image + ')' }" style="background-size: cover; background-position: center">
         <div class="info-container" v-if="showCard">
             <div class="black-background">
                 <div class="date-container">
                     <p>Sortie</p>
-                    <p class="entry-date">5 juin 2019</p>
+                    <p class="entry-date">{{ randomDate('05/19/2020', '01/01/2018') }}</p>
                 </div>
                 <div class="middle-info">
                     <p class="genre">{{ setGenre(idimage) }}</p>
@@ -74,6 +74,17 @@
                 } else if (nCat === 5) {
                     return "Aventure"
                 }
+            },
+            randomDate(date1, date2){
+                function randomValueBetween(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
+                date1 = new Date(date1).getTime()
+                date2 = new Date(date2).getTime()
+
+                const options = {year: 'numeric', month: 'long', day: 'numeric' };
+
+                return new Date(randomValueBetween(date2,date1)).toLocaleDateString('fr-FR', options)
             }
         }
     }
@@ -107,7 +118,7 @@
     }
 
     p.entry-date {
-        font-size: 36px;
+        font-size: 28px;
         color: #FFD800;
         font-weight: bold;
         text-transform: uppercase;
