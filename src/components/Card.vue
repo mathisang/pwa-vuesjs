@@ -1,32 +1,35 @@
 <template>
-    <div v-on:mouseenter="overCard" v-on:mouseleave="overCard" class="card-container" :style="{ backgroundImage: 'url(' + image + ')' }" style="background-size: cover; background-position: center">
-        <div class="info-container" v-if="showCard">
-            <div class="black-background">
-                <div class="date-container">
-                    <p>Sortie</p>
-                    <p class="entry-date">{{ randomDate('05/19/2020', '01/01/2018') }}</p>
-                </div>
-                <div class="middle-info">
-                    <p class="genre">{{ setGenre(idimage) }}</p>
-                    <p class="director">{{ titre | subStr }}</p>
-                    <p class="duration">Lecture {{ randomNumber(20) }} min</p>
-                </div>
-                <div class="rate-container">
-                    <div class="views">
-                        <img src="../assets/pictos/eye.svg" width="20px"/>
-                        <p>{{ randomNumber(50000) }}</p>
+    <div v-on:mouseenter="overCard" v-on:mouseleave="overCard" class="card-container">
+        <div class="block-card" :style="{ backgroundImage: 'url(' + image + ')' }"
+             style="background-size: cover; background-position: center">
+            <div class="info-container" v-if="showCard">
+                <div class="black-background">
+                    <div class="date-container">
+                        <p>Sortie</p>
+                        <p class="entry-date">{{ randomDate('05/19/2020', '01/01/2018') }}</p>
                     </div>
-                    <div class="like">
-                        <img src="../assets/pictos/like.svg" width="20px"/>
-                        <p>{{ randomNumber(5000) }}</p>
+                    <div class="middle-info">
+                        <p class="genre">{{ setGenre(idimage) }}</p>
+                        <p class="director">{{ titre | subStr }}</p>
+                        <p class="duration">Lecture {{ randomNumber(20) }} min</p>
                     </div>
+                    <div class="rate-container">
+                        <div class="views">
+                            <img src="../assets/pictos/eye.svg" width="20px"/>
+                            <p>{{ randomNumber(50000) }}</p>
+                        </div>
+                        <div class="like">
+                            <img src="../assets/pictos/like.svg" width="20px"/>
+                            <p>{{ randomNumber(5000) }}</p>
+                        </div>
+                    </div>
+                    <router-link :to="`/article/${ idimage }`">
+                        <div class="save-read-container">
+                            <button>Lire</button>
+                            <img src="../assets/pictos/Save.svg" width="20px"/>
+                        </div>
+                    </router-link>
                 </div>
-                <router-link :to="`/article/${ idimage }`">
-                    <div class="save-read-container">
-                        <button>Lire</button>
-                        <img src="../assets/pictos/Save.svg" width="20px"/>
-                    </div>
-                </router-link>
             </div>
         </div>
     </div>
@@ -75,16 +78,17 @@
                     return "Aventure"
                 }
             },
-            randomDate(date1, date2){
+            randomDate(date1, date2) {
                 function randomValueBetween(min, max) {
                     return Math.random() * (max - min) + min;
                 }
+
                 date1 = new Date(date1).getTime()
                 date2 = new Date(date2).getTime()
 
-                const options = {year: 'numeric', month: 'long', day: 'numeric' };
+                const options = {year: 'numeric', month: 'long', day: 'numeric'};
 
-                return new Date(randomValueBetween(date2,date1)).toLocaleDateString('fr-FR', options)
+                return new Date(randomValueBetween(date2, date1)).toLocaleDateString('fr-FR', options)
             }
         }
     }
@@ -94,6 +98,11 @@
         height: 380px;
         width: 300px !important;
         position: relative;
+    }
+
+    .block-card {
+        width: 100%;
+        height: 100%;
     }
 
     .info-container {
