@@ -1,5 +1,8 @@
 <template>
     <div id="block-post">
+        <div class="bar-container">
+            <div id="bar"></div>
+        </div>
         <div id="post" v-if="post">
             <div class="head-article">
                 <span>{{ randomNumber(20) }} min</span>
@@ -62,16 +65,25 @@
             }
         }
     }
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+        let scrollLenght = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (scrollLenght / height) * 100;
+        document.getElementById("bar").style.width = scrolled + "%";
+    }
 </script>
 
 <style scoped>
-    #block-post {
+    /*#block-post {
         border-top: 3px solid #E50914;
-    }
+    }*/
+
 
     #post {
         max-width: 1200px;
-        margin: 3rem auto 0;
+        margin: 10rem auto 0;
     }
 
     h1 {
@@ -117,5 +129,29 @@
         display: flex;
         justify-content: space-around;
         margin-top: 1.5rem;
+    }
+
+    .bar-container {
+        width: 100%;
+        height: 5px;
+        background: #ccc;
+        position: fixed;
+        top: 88px;
+    }
+
+    #bar {
+        height: 5px;
+        background: #FFD800;
+        width: 0%;
+    }
+
+    @media screen and (max-width: 575px) {
+        #post {
+            margin: 7rem 2em;
+        }
+        .bar-container {
+            top: 75px;
+        }
+
     }
 </style>
