@@ -14,11 +14,11 @@
                     <div class="rate">
                         <div class="views">
                             <img src="../assets/pictos/eye.svg" width="20px" />
-                            <p>12 263</p>
+                            <p>{{ randomNumber(50000) }}</p>
                         </div>
                         <div class="like">
                             <img src="../assets/pictos/like.svg" width="20px" />
-                            <p>4316</p>
+                            <p>{{ randomNumber(5000) }}</p>
                         </div>
                         <div class="mark">
                             <img src="../assets/pictos/mark.svg" width="17px" />
