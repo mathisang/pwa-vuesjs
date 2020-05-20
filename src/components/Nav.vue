@@ -1,5 +1,5 @@
 <template>
-    <div id="nav">
+    <div :class="{ 'fixed' : $route.params.id}" id="nav">
         <div class="nav-left menu-desktop">
             <router-link to="/" class="logo">BAZ'ART</router-link>
             <router-link to="/">Accueil</router-link>
@@ -63,6 +63,15 @@
         align-items: center;
         justify-content: space-between;
         margin: 1.5rem;
+        top: 0;
+    }
+
+    #nav.fixed {
+        margin: 0;
+        padding: 1.5rem;
+        position: fixed;
+        width: 100%;
+        background: black;
     }
 
     #nav .nav-left > * {
@@ -234,6 +243,14 @@
             -ms-transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
+        }
+
+        #nav.fixed {
+            padding: 1.5rem 0;
+        }
+
+        #nav.fixed .logo {
+            margin-left: 1.5rem;
         }
     }
 </style>
