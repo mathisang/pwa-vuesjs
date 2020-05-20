@@ -1,12 +1,7 @@
 <template>
   <div class="slider-container">
     <slick ref="slick" :options="slickOptions">
-      <Card  />
-      <Card  />
-      <Card  />
-      <Card  />
-      <Card  />
-      <Card  />
+        <Card />
     </slick>
   </div>
 </template>

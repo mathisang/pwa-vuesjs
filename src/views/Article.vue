@@ -90,6 +90,16 @@
         display: flex;
     }
 
+    @media (max-width: 575px) {
+        .content {
+            flex-direction: column;
+        }
+
+        .content .body {
+            margin-top: 2em;
+        }
+    }
+
     .content .image {
         margin-right: 1.5rem;
     }
