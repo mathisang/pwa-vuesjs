@@ -7,14 +7,14 @@
             </div>
         </div>
       <div class="wrapper-content">
-        <div style="width: 25%; display: flex; justify-content: center;">
+        <div class="news" style="margin: 0;" >
           <h2 style="text-align: left; width: 300px;">Nouveautés</h2>
         </div>
-        <div style="display: flex">
-            <div style="width: 25%; display: flex; justify-content: center;" v-for="post in posts" :key="post.id">
+        <div class="news-wrapper">
+            <div class="news" v-for="post in posts" :key="post.id">
               <Card :key="post.id" :titre="post.title" :idimage="post.id"/>
             </div>
-          <div style="width: 25%; display: flex; justify-content: center;">
+          <div class="news" >
             <TopsCards />
           </div>
         </div>
@@ -94,7 +94,29 @@
         margin: 0;
     }
 
-  .wrapper-content {
-    padding: 3em;
-  }
+    .news {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .news-wrapper {
+      display: flex;
+    }
+
+    @media (max-width: 575px) {
+      .wrapper-content {
+        padding: 2em;
+      }
+      .news-wrapper {
+        flex-direction: column;
+      }
+      .news {
+        margin-bottom: 2em;
+        width: 100%;
+      }
+      .header p {
+        width: 80%;
+      }
+    }
 </style>

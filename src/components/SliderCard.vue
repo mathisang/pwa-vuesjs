@@ -105,4 +105,10 @@
         transform: translateY(-50%);
         cursor: pointer;
     }
+
+    @media (max-width: 575px) {
+      .slick-slide.slick-current {
+        z-index: 1;
+      }
+    }
 </style>
