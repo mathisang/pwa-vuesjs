@@ -1,7 +1,7 @@
 <template>
     <div class="slider-container">
         <slick ref="slick" :options="slickOptions" v-if="list.length">
-            <Card v-for="post in posts" :key="post.id" :titre="post.title" :idimage="post.id"/>
+            <Card v-for="post in list" :key="post.id" :titre="post.title" :idimage="post.id"/>
         </slick>
     </div>
 </template>
@@ -15,8 +15,11 @@
             Card,
             Slick
         },
+        props: {
+            categorie: String
+        },
         created() {
-            fetch('https://my-json-server.typicode.com/mathisang/api-vuejs/articles/?_limit=7').then((response) => {
+            fetch('https://my-json-server.typicode.com/mathisang/api-vuejs/articles/').then((response) => {
                 response.json().then((data) => {
                     this.posts = data
                 })
