@@ -10,7 +10,7 @@
                     </div>
                     <div class="middle-info">
                         <p class="genre">{{ setGenre(idimage) }}</p>
-                        <p class="director">{{ titre | subStr }}</p>
+                        <p class="director">{{ titre }}</p>
                         <p class="duration">Lecture {{ randomNumber(20) }} min</p>
                     </div>
                     <div class="rate-container">
@@ -50,11 +50,6 @@
             genre: String,
             titre: String,
             idimage: Number
-        },
-        filters: {
-            subStr: function (string) {
-                return string.substring(0, 16);
-            }
         },
         methods: {
             overCard: function () {

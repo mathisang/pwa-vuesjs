@@ -6,7 +6,7 @@
         <div id="post" v-if="post">
             <div class="head-article">
                 <span>{{ randomNumber(20) }} min</span>
-                <h1>{{ post.title | subStr }}</h1>
+                <h1>{{ post.title }}</h1>
             </div>
             <div class="content">
                 <div class="image">
@@ -53,11 +53,6 @@
                     this.post = data
                 })
             })
-        },
-        filters: {
-            subStr: function (string) {
-                return string.substring(0, 16);
-            }
         },
         methods: {
             randomNumber: function (e) {

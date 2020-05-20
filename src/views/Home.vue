@@ -48,7 +48,7 @@
             Card
         },
         created() {
-            fetch('https://my-json-server.typicode.com/mathisang/api-vuejs/articles/?_limit=3').then((response) => {
+            fetch('https://my-json-server.typicode.com/mathisang/api-vuejs/articles/?_limit=4').then((response) => {
                 response.json().then((data) => {
                     this.posts = data
                 })
@@ -102,6 +102,30 @@
 
     .news-wrapper {
       display: flex;
+    }
+
+    @media (max-width: 1551px) {
+        .news-wrapper .news:nth-child(4) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1251px) {
+        .news-wrapper .news:nth-child(4), .news-wrapper .news:nth-child(3) {
+            display: none;
+        }
+        .news {
+            width: 33%;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .news-wrapper .news:nth-child(4), .news-wrapper .news:nth-child(3), .news-wrapper .news:nth-child(2) {
+            display: none;
+        }
+        .news {
+            width: 50%;
+        }
     }
 
     @media (max-width: 575px) {

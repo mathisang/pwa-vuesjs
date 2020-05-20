@@ -1,8 +1,8 @@
 <template>
     <div class="topsCards">
-        <SmallCard idimage="2" title="Casa de papel" temps="8" like="14215" />
-        <SmallCard idimage="5" title="Avengers" temps="14" like="47321" />
-        <SmallCard idimage="8" title="Prison Break" temps="12" like="30124" />
+        <SmallCard idarticle="2" idimage="small-casa-de-papel" title="Casa de papel" temps="8" like="14215" />
+        <SmallCard idarticle="4" idimage="small-avengers" title="Avengers" temps="14" like="47321" />
+        <SmallCard idarticle="7" idimage="small-prison-break" title="Prison Break" temps="12" like="30124" />
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="`/article/${ idimage }`" style="height: 31%; width: 100%; text-decoration: none">
+    <router-link :to="`/article/${ idarticle }`" style="height: 31%; width: 100%; text-decoration: none">
         <div class="small-card">
             <div class="picture" :style="{ backgroundImage: 'url(' + image + ')' }" style="background-size: cover; background-position: center"></div>
             <div class="content">
@@ -24,7 +24,8 @@
             title: String,
             temps: String,
             like: String,
-            idimage: String
+            idimage: String,
+            idarticle: String
         },
         data() {
             return {

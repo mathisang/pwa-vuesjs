@@ -42,7 +42,8 @@
             return {
                 posts: [],
                 slickOptions: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
+                    slidesToScroll: 2,
                     infinite: true,
                     adaptiveHeight: false,
                     arrows: true,
@@ -51,9 +52,28 @@
                     swipe: true,
                     responsive: [
                         {
+                            breakpoint: 1550,
+                            settings: {
+                                slidesToShow: 4,
+                            }
+                        },
+                        {
+                            breakpoint: 1250,
+                            settings: {
+                                slidesToShow: 3,
+                            }
+                        },
+                        {
+                            breakpoint: 990,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
                             breakpoint: 575,
                             settings: {
                                 slidesToShow: 1,
+                                slidesToScroll: 1
                             }
                         }
                     ],
